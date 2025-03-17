@@ -131,23 +131,23 @@
 
         socket.on('move',function(nbCase){
 
+            if(winner==""){
+                if(tour==0){
+                    if(tab[nbCase-1]==0){
+                        document.getElementById(""+nbCase).innerHTML="X";
+                        tab[nbCase-1] = "X";
+                        tour = 1;
+                    }
+                }else{
+                    if(tab[nbCase-1]==0){
+                        document.getElementById(""+nbCase).innerHTML="O";
+                        tab[nbCase-1] = "O";
+                        tour = 0;                    
+                    }
+                }
 
-            if(tour==0){
-                if(tab[nbCase-1]==0 && winner!=""){
-                    document.getElementById(""+nbCase).innerHTML="X";
-                    tab[nbCase-1] = "X";
-                    tour = 1;
-                }
-            }else{
-                if(tab[nbCase-1]==0 && winner!=""){
-                    document.getElementById(""+nbCase).innerHTML="O";
-                    tab[nbCase-1] = "O";
-                    tour = 0;                    
-                }
+                checkState(tab);
             }
-
-            checkState(tab);
-            
         })
 
         
